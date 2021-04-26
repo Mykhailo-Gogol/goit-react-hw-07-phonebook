@@ -1,12 +1,17 @@
-import types from "./types";
 import { createAction } from "@reduxjs/toolkit";
 
-export const onAddContactRequst = createAction(types.ADD_CONTACT_R);
-export const onAddContactSuccess = createAction(types.ADD_CONTACT_S);
-export const onAddContactFailure = createAction(types.ADD_CONTACT_F);
+export const onAddContactRequest = createAction("phonebook/ADD_CONTACT_R");
+export const onAddContactSuccess = createAction("phonebook/ADD_CONTACT_S");
+export const onAddContactFailure = createAction("phonebook/ADD_CONTACT_F");
 
-export const onAddContact = createAction(types.ADD_CONTACT);
+export const onDeleteContactRequest = createAction(
+  "phonebook/DELETE_CONTACT_R"
+);
+export const onDeleteContactSuccess = createAction(
+  "phonebook/DELETE_CONTACT_S"
+);
+export const onDeleteContactFailure = createAction(
+  "phonebook/DELETE_CONTACT_F"
+);
 
-export const onRemoveContact = createAction(types.REMOVE_CONTACT);
-
-export const onChangeFilter = createAction(types.FILTER_CONTACT);
+export const onChangeFilter = createAction("phonebook/FILTER_CONTACT");

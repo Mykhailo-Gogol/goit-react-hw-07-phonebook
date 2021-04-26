@@ -1,8 +1,12 @@
 import axios from "axios";
 import {
-  onAddContactRequst,
+  onAddContactRequest,
   onAddContactSuccess,
   onAddContactFailure,
+  onDeleteContactRequest,
+  onDeleteContactSuccess,
+  onDeleteContactFailure,
+  onChangeFilter,
 } from "./actions";
 
 axios.defaults.baseURL = "http://localhost:4000";
@@ -13,12 +17,21 @@ export const addContactOperation = (payload) => (dispatch) => {
     favourite: false,
   };
 
-  dispatch(onAddContactRequst());
+  dispatch(onAddContactRequest());
 
   axios
     .post("/contacts", contact)
     .then(({ data }) => {
-      dispatch(onAddContactSuccess(data));
+      return dispatch(onAddContactSuccess(data));
     })
     .catch((error) => dispatch(onAddContactFailure(error)));
+};
+
+export const deleteContactOperation = (id) => (dispatch) => {
+  dispatch(onDeleteContactRequest());
+
+  axios
+    .delete(`/contacts/${id}`)
+    .then(() => dispatch(onDeleteContactSuccess(id)))
+    .catch((error) => dispatch(onDeleteContactFailure(error)));
 };

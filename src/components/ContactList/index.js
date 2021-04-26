@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { onRemoveContact } from "../../redux/phonebook/actions";
+import { deleteContactOperation } from "../../redux/phonebook/operations";
 
 const ContactList = () => {
   const contacts = useSelector((state) => state.phonebook.contacts);
@@ -17,7 +17,7 @@ const ContactList = () => {
   };
 
   const handleDeleteContact = (id) => {
-    return dispatch(onRemoveContact(id));
+    return dispatch(deleteContactOperation(id));
   };
   return (
     <>
