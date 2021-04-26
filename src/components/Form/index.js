@@ -1,9 +1,9 @@
-import shortid from "shortid";
+// import shortid from "shortid";
 import { useState } from "react";
 
 // Redux
 import { useSelector, useDispatch } from "react-redux";
-import { onAddContact } from "../../redux/phonebook/actions";
+import { addContactOperation } from "../../redux/phonebook/operations";
 
 const Form = () => {
   const contacts = useSelector((state) => state.phonebook.contacts);
@@ -40,7 +40,7 @@ const Form = () => {
     if (contacts.some((contact) => contact.name === name)) {
       alert(`${name} is already in contacts!`);
     } else {
-      dispatch(onAddContact({ name, number, id: shortid.generate() }));
+      dispatch(addContactOperation({ name, number }));
     }
   };
 

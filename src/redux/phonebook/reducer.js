@@ -1,13 +1,13 @@
 import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
 
-import data from "../../data/contacts.json";
+// import data from "../../data/contacts.json";
 import types from "./types";
 
-const phonebookState = { items: [...data], filter: "" };
+const phonebookState = { items: [], filter: "" };
 
 const contacts = createReducer(phonebookState.items, {
-  [types.ADD_CONTACT]: (state, { type, payload }) => [...state, payload],
+  [types.ADD_CONTACT_S]: (state, { type, payload }) => [...state, payload],
   [types.REMOVE_CONTACT]: (state, { type, payload }) => {
     return state.filter(({ id }) => id !== payload);
   },
