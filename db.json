@@ -1,3 +1,58 @@
 {
-  "contacts": []
+  "contacts": [
+    {
+      "name": "Misha",
+      "number": "123",
+      "favourite": false,
+      "id": 1
+    },
+    {
+      "name": "ghj",
+      "number": "sdfg",
+      "favourite": false,
+      "id": 2
+    },
+    {
+      "name": "Name",
+      "number": "12312312312",
+      "favourite": false,
+      "id": 3
+    },
+    {
+      "name": "Misha",
+      "number": "12312312312",
+      "favourite": false,
+      "id": 4
+    },
+    {
+      "name": "Misha",
+      "number": "12312312312",
+      "favourite": false,
+      "id": 5
+    },
+    {
+      "name": "Misha",
+      "number": "12312312312",
+      "favourite": false,
+      "id": 6
+    },
+    {
+      "name": "Misha",
+      "number": "12312312312",
+      "favourite": false,
+      "id": 7
+    },
+    {
+      "name": "Misha",
+      "number": "12312312312",
+      "favourite": false,
+      "id": 8
+    },
+    {
+      "name": "Misha",
+      "number": "+380121231212",
+      "favourite": false,
+      "id": 9
+    }
+  ]
 }

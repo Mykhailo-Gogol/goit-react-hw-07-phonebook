@@ -6,7 +6,7 @@ import {
   onDeleteContactRequest,
   onDeleteContactSuccess,
   onDeleteContactFailure,
-  onChangeFilter,
+  // onChangeFilter,
 } from "./actions";
 
 axios.defaults.baseURL = "http://localhost:4000";
