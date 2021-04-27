@@ -1,5 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
-import { deleteContactOperation } from "../../redux/phonebook/operations";
+import {
+  deleteContactOperation,
+  toggleContactFavourite,
+} from "../../redux/phonebook/operations";
 
 const ContactList = () => {
   const contacts = useSelector((state) => state.phonebook.contacts);
@@ -19,11 +22,16 @@ const ContactList = () => {
   const handleDeleteContact = (id) => {
     return dispatch(deleteContactOperation(id));
   };
+
+  const handleToggleFavourite = (update) => {
+    return dispatch(toggleContactFavourite(update));
+  };
+
   return (
     <>
       {filteredContacts().length ? (
         <ol className="contact-list">
-          {filteredContacts().map(({ name, number, id }) => {
+          {filteredContacts().map(({ name, number, id, favourite }) => {
             return (
               <li key={name}>
                 <p className="contact-text">
@@ -35,6 +43,14 @@ const ContactList = () => {
                   onClick={() => handleDeleteContact(id)}
                 >
                   Delete
+                </button>
+                <button
+                  className="favourite-button"
+                  onClick={() =>
+                    handleToggleFavourite({ id, favourite: !favourite })
+                  }
+                >
+                  {favourite ? "Delete from favourite" : "Add to favourite"}
                 </button>
               </li>
             );

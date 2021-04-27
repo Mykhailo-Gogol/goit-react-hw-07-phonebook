@@ -8,6 +8,9 @@ import {
   onDeleteContactRequest,
   onDeleteContactSuccess,
   onDeleteContactFailure,
+  onToggleFavouriteRequest,
+  onToggleFavouriteSuccess,
+  onToggleFavouriteFailure,
   onChangeFilter,
 } from "./actions";
 
@@ -18,9 +21,16 @@ const phonebookState = {
 };
 
 const contacts = createReducer(phonebookState.items, {
+  // ADD
   [onAddContactSuccess]: (state, { type, payload }) => [...state, payload],
+  // DELETE
   [onDeleteContactSuccess]: (state, { type, payload }) =>
     state.filter(({ id }) => id !== payload),
+  // TOGGLE
+  [onToggleFavouriteSuccess]: (state, { type, payload }) =>
+    state.map((contact) => {
+      return contact.id === payload.id ? payload : contact;
+    }),
 });
 
 const loading = createReducer(phonebookState.loading, {
@@ -30,6 +40,9 @@ const loading = createReducer(phonebookState.loading, {
   [onDeleteContactRequest]: () => true,
   [onDeleteContactSuccess]: () => false,
   [onDeleteContactFailure]: () => false,
+  [onToggleFavouriteRequest]: () => true,
+  [onToggleFavouriteSuccess]: () => false,
+  [onToggleFavouriteFailure]: () => false,
 });
 
 const filter = createReducer(phonebookState.filter, {
