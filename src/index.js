@@ -10,6 +10,11 @@ import { store } from "./redux/store";
 // Comp
 import App from "./App";
 
+// Utils
+import disableScroll from "disable-scroll";
+
+// disableScroll.on();
+
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>

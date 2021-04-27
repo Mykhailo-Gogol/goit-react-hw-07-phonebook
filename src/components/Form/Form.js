@@ -22,7 +22,7 @@ const Form = () => {
 
   const [contact, setContact] = useState({
     name: "",
-    number: "",
+    number: "+380",
   });
 
   const handleInputChange = (event) => {
@@ -30,7 +30,7 @@ const Form = () => {
 
     setContact({
       ...contact,
-      [name]: value,
+      [name]: value.charAt(0).toUpperCase() + value.slice(1),
     });
   };
 
@@ -42,7 +42,7 @@ const Form = () => {
   const reset = () => {
     setContact({
       name: "",
-      number: "",
+      number: "+380",
     });
   };
 
