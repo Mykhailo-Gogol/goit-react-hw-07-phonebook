@@ -1,5 +1,5 @@
-import { combineReducers } from "redux";
-import { createReducer } from "@reduxjs/toolkit";
+import { combineReducers } from 'redux';
+import { createReducer } from '@reduxjs/toolkit';
 
 import {
   onAddContactRequest,
@@ -15,11 +15,11 @@ import {
   onFetchContactsRequest,
   onFetchContactsSuccess,
   onFetchContactsFailure,
-} from "./actions";
+} from './actions';
 
 const phonebookState = {
   items: [],
-  filter: "",
+  filter: '',
   loading: false,
 };
 
@@ -33,7 +33,7 @@ const contacts = createReducer(phonebookState.items, {
     state.filter(({ id }) => id !== payload),
   // TOGGLE
   [onToggleFavouriteSuccess]: (state, { type, payload }) =>
-    state.map((contact) => {
+    state.map(contact => {
       return contact.id === payload.id ? payload : contact;
     }),
 });
@@ -45,9 +45,9 @@ const loading = createReducer(phonebookState.loading, {
   [onDeleteContactRequest]: () => true,
   [onDeleteContactSuccess]: () => false,
   [onDeleteContactFailure]: () => false,
-  [onToggleFavouriteRequest]: () => true,
-  [onToggleFavouriteSuccess]: () => false,
-  [onToggleFavouriteFailure]: () => false,
+  // [onToggleFavouriteRequest]: () => true,
+  // [onToggleFavouriteSuccess]: () => false,
+  // [onToggleFavouriteFailure]: () => false,
   [onFetchContactsRequest]: () => true,
   [onFetchContactsSuccess]: () => false,
   [onFetchContactsFailure]: () => false,
@@ -60,4 +60,5 @@ const filter = createReducer(phonebookState.filter, {
 export default combineReducers({
   contacts,
   filter,
+  loading,
 });

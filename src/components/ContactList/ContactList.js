@@ -29,6 +29,7 @@ const ContactList = () => {
 
   useEffect(() => {
     dispatch(fetchContactOperation());
+    // eslint-disable-next-line
   }, []);
 
   const filteredContacts = () => {

@@ -11,6 +11,18 @@
       "number": "+38012312312",
       "favourite": true,
       "id": 2
+    },
+    {
+      "name": "G",
+      "number": "+38012312312",
+      "favourite": true,
+      "id": 3
+    },
+    {
+      "name": "S",
+      "number": "+38012312312",
+      "favourite": false,
+      "id": 4
     }
   ]
 }
