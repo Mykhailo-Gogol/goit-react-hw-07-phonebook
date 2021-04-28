@@ -1,6 +1,17 @@
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+export const contactDuplicateValidation = (name) =>
+  toast.warn(`${name} is already in contacts!`, {
+    position: "top-right",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+
 export const nameInputValidation = () =>
   toast.error(
     "The name can only consist of letters, apostrophes, dashes and spaces.",

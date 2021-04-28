@@ -1,5 +1,16 @@
 import { createAction } from "@reduxjs/toolkit";
 
+// FETCH CONTACTS
+export const onFetchContactsRequest = createAction(
+  "phonebook/FETCH_CONTACTS_R"
+);
+export const onFetchContactsSuccess = createAction(
+  "phonebook/FETCH_CONTACTS_S"
+);
+export const onFetchContactsFailure = createAction(
+  "phonebook/FETCH_CONTACTS_F"
+);
+
 // ADD
 export const onAddContactRequest = createAction("phonebook/ADD_CONTACT_R");
 export const onAddContactSuccess = createAction("phonebook/ADD_CONTACT_S");

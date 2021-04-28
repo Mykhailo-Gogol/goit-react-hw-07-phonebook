@@ -15,16 +15,9 @@ const Filter = () => {
   };
   return (
     <div>
-      {/* <input
-        type="text"
-        placeholder="search contact"
-        name="filter"
-        value={filter}
-        onChange={handleInputChange}
-      /> */}
       <Input
         type="text"
-        placeholder="search contact"
+        placeholder="Search contact"
         name="filter"
         value={filter}
         onChange={handleInputChange}

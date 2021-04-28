@@ -7,10 +7,12 @@ import Input from "@material-ui/core/Input";
 import Button from "@material-ui/core/Button";
 
 // Toastyfy
-import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import { toast } from "react-toastify";
-import { nameInputValidation, numberInputValidation } from "../../utils/toast";
+import {
+  nameInputValidation,
+  numberInputValidation,
+  contactDuplicateValidation,
+} from "../../utils/toast";
 
 // Redux
 import { useSelector, useDispatch } from "react-redux";
@@ -54,19 +56,9 @@ const Form = () => {
     const testNumber = /(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})/.test(
       number
     );
-    const contactDuplicateValidation = () =>
-      toast.warn(`${name} is already in contacts!`, {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
 
     if (contacts.some((contact) => contact.name === name)) {
-      contactDuplicateValidation();
+      contactDuplicateValidation(name);
     } else if (testName !== true) {
       nameInputValidation();
     } else if (testNumber !== true) {

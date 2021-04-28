@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import {
   contact_item,
   contact_text,
@@ -7,6 +9,7 @@ import {
 
 import { useSelector, useDispatch } from "react-redux";
 import {
+  fetchContactOperation,
   deleteContactOperation,
   toggleContactFavourite,
 } from "../../redux/phonebook/operations";
@@ -19,10 +22,14 @@ import BookmarkIcon from "@material-ui/icons/Bookmark";
 import { green } from "@material-ui/core/colors";
 
 const ContactList = () => {
+  const dispatch = useDispatch();
+
   const contacts = useSelector((state) => state.phonebook.contacts);
   const filter = useSelector((state) => state.phonebook.filter);
 
-  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchContactOperation());
+  }, []);
 
   const filteredContacts = () => {
     const normalizedFilter = filter.toLowerCase();

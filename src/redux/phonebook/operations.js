@@ -9,9 +9,22 @@ import {
   onToggleFavouriteRequest,
   onToggleFavouriteSuccess,
   onToggleFavouriteFailure,
+  onFetchContactsRequest,
+  onFetchContactsSuccess,
+  onFetchContactsFailure,
 } from "./actions";
 
 axios.defaults.baseURL = "http://localhost:4000";
+
+// FETCH CONTACTS
+export const fetchContactOperation = (payload) => (dispatch) => {
+  dispatch(onFetchContactsRequest());
+
+  axios
+    .get("/contacts")
+    .then(({ data }) => dispatch(onFetchContactsSuccess(data)))
+    .catch((error) => dispatch(onFetchContactsFailure(error)));
+};
 
 // ADD
 export const addContactOperation = (payload) => (dispatch) => {

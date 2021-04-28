@@ -12,6 +12,9 @@ import {
   onToggleFavouriteSuccess,
   onToggleFavouriteFailure,
   onChangeFilter,
+  onFetchContactsRequest,
+  onFetchContactsSuccess,
+  onFetchContactsFailure,
 } from "./actions";
 
 const phonebookState = {
@@ -21,6 +24,8 @@ const phonebookState = {
 };
 
 const contacts = createReducer(phonebookState.items, {
+  // FETCH
+  [onFetchContactsSuccess]: (state, { payload }) => payload,
   // ADD
   [onAddContactSuccess]: (state, { type, payload }) => [...state, payload],
   // DELETE
@@ -43,6 +48,9 @@ const loading = createReducer(phonebookState.loading, {
   [onToggleFavouriteRequest]: () => true,
   [onToggleFavouriteSuccess]: () => false,
   [onToggleFavouriteFailure]: () => false,
+  [onFetchContactsRequest]: () => true,
+  [onFetchContactsSuccess]: () => false,
+  [onFetchContactsFailure]: () => false,
 });
 
 const filter = createReducer(phonebookState.filter, {
