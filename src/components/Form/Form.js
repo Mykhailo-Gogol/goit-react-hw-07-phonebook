@@ -1,33 +1,33 @@
 // import shortid from "shortid";
-import { useState } from "react";
-import { form_input, contact_form } from "./Form.module.scss";
+import { useState } from 'react';
+import { form_input, contact_form } from './Form.module.scss';
 
 // Meterial
-import Input from "@material-ui/core/Input";
-import Button from "@material-ui/core/Button";
+import Input from '@material-ui/core/Input';
+import Button from '@material-ui/core/Button';
 
 // Toastyfy
-import { ToastContainer } from "react-toastify";
+import { ToastContainer } from 'react-toastify';
 import {
   nameInputValidation,
   numberInputValidation,
   contactDuplicateValidation,
-} from "../../utils/toast";
+} from '../../utils/notifications';
 
 // Redux
-import { useSelector, useDispatch } from "react-redux";
-import { addContactOperation } from "../../redux/phonebook/operations";
+import { useSelector, useDispatch } from 'react-redux';
+import { addContactOperation } from '../../redux/phonebook/operations';
 
 const Form = () => {
-  const contacts = useSelector((state) => state.phonebook.contacts);
+  const contacts = useSelector(state => state.phonebook.contacts);
   const dispatch = useDispatch();
 
   const [contact, setContact] = useState({
-    name: "",
-    number: "+380",
+    name: '',
+    number: '+380',
   });
 
-  const handleInputChange = (event) => {
+  const handleInputChange = event => {
     const { name, value } = event.target;
 
     setContact({
@@ -36,28 +36,28 @@ const Form = () => {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
     formSubmitHandler(contact);
   };
 
   const reset = () => {
     setContact({
-      name: "",
-      number: "+380",
+      name: '',
+      number: '+380',
     });
   };
 
   const formSubmitHandler = ({ name, number }) => {
     const testName = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/.test(
-      name
+      name,
     );
 
     const testNumber = /(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})/.test(
-      number
+      number,
     );
 
-    if (contacts.some((contact) => contact.name === name)) {
+    if (contacts.some(contact => contact.name === name)) {
       contactDuplicateValidation(name);
     } else if (testName !== true) {
       nameInputValidation();
@@ -80,7 +80,7 @@ const Form = () => {
         <Input
           placeholder="Name"
           className={form_input}
-          inputProps={{ "aria-label": "contact name" }}
+          inputProps={{ 'aria-label': 'contact name' }}
           type="text"
           onChange={handleInputChange}
           name="name"
@@ -92,7 +92,7 @@ const Form = () => {
         <Input
           placeholder="Number"
           className={form_input}
-          inputProps={{ "aria-label": "contact number" }}
+          inputProps={{ 'aria-label': 'contact number' }}
           type="tel"
           onChange={handleInputChange}
           name="number"

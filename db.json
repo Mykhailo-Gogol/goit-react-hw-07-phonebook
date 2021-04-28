@@ -13,16 +13,22 @@
       "id": 2
     },
     {
-      "name": "G",
+      "name": "A",
       "number": "+38012312312",
-      "favourite": true,
+      "favourite": false,
       "id": 3
     },
     {
-      "name": "S",
+      "name": "AG",
       "number": "+38012312312",
       "favourite": false,
       "id": 4
+    },
+    {
+      "name": "MG",
+      "number": "+38012312312",
+      "favourite": false,
+      "id": 5
     }
   ]
 }

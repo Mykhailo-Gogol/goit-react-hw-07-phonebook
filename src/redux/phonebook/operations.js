@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 import {
   onAddContactRequest,
   onAddContactSuccess,
@@ -12,22 +12,22 @@ import {
   onFetchContactsRequest,
   onFetchContactsSuccess,
   onFetchContactsFailure,
-} from "./actions";
+} from './actions';
 
-axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.baseURL = 'http://localhost:4000';
 
 // FETCH CONTACTS
-export const fetchContactOperation = (payload) => (dispatch) => {
+export const fetchContactOperation = payload => dispatch => {
   dispatch(onFetchContactsRequest());
 
   axios
-    .get("/contacts")
+    .get('/contacts')
     .then(({ data }) => dispatch(onFetchContactsSuccess(data)))
-    .catch((error) => dispatch(onFetchContactsFailure(error)));
+    .catch(error => dispatch(onFetchContactsFailure(error)));
 };
 
 // ADD
-export const addContactOperation = (payload) => (dispatch) => {
+export const addContactOperation = payload => dispatch => {
   const contact = {
     ...payload,
     favourite: false,
@@ -36,25 +36,23 @@ export const addContactOperation = (payload) => (dispatch) => {
   dispatch(onAddContactRequest());
 
   axios
-    .post("/contacts", contact)
-    .then(({ data }) => {
-      return dispatch(onAddContactSuccess(data));
-    })
-    .catch((error) => dispatch(onAddContactFailure(error)));
+    .post('/contacts', contact)
+    .then(({ data }) => dispatch(onAddContactSuccess(data)))
+    .catch(error => dispatch(onAddContactFailure(error)));
 };
 
 // DELETE
-export const deleteContactOperation = (id) => (dispatch) => {
+export const deleteContactOperation = id => dispatch => {
   dispatch(onDeleteContactRequest());
 
   axios
     .delete(`/contacts/${id}`)
     .then(() => dispatch(onDeleteContactSuccess(id)))
-    .catch((error) => dispatch(onDeleteContactFailure(error)));
+    .catch(error => dispatch(onDeleteContactFailure(error)));
 };
 
 // TOGGLE
-export const toggleContactFavourite = ({ id, favourite }) => (dispatch) => {
+export const toggleContactFavourite = ({ id, favourite }) => dispatch => {
   dispatch(onToggleFavouriteRequest());
 
   const update = { favourite };
@@ -62,5 +60,5 @@ export const toggleContactFavourite = ({ id, favourite }) => (dispatch) => {
   axios
     .patch(`/contacts/${id}`, update)
     .then(({ data }) => dispatch(onToggleFavouriteSuccess(data)))
-    .catch((error) => dispatch(onToggleFavouriteFailure(error)));
+    .catch(error => dispatch(onToggleFavouriteFailure(error)));
 };
