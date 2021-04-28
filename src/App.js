@@ -9,9 +9,10 @@ import Loader from './components/Loader';
 
 // REDUX
 import { useSelector } from 'react-redux';
+import { isLoadingSelector } from './redux/phonebook/reselect';
 
 const App = () => {
-  const isLoading = useSelector(state => state.phonebook.loading);
+  const isLoading = useSelector(state => isLoadingSelector(state));
   return (
     <div className="container">
       {isLoading && <Loader />}

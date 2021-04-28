@@ -1,16 +1,17 @@
-import { filter_input } from "./Filter.module.scss";
-import { useSelector, useDispatch } from "react-redux";
-import { onChangeFilter } from "../../redux/phonebook/actions";
+import { filter_input } from './Filter.module.scss';
+import { useSelector, useDispatch } from 'react-redux';
+import { onChangeFilter } from '../../redux/phonebook/actions';
+import { filterSelector } from '../../redux/phonebook/reselect';
 
 // Material
-import Input from "@material-ui/core/Input";
+import Input from '@material-ui/core/Input';
 
 const Filter = () => {
-  const filter = useSelector((state) => state.phonebook.filter);
+  const filter = useSelector(state => filterSelector(state));
 
   const dispatch = useDispatch();
 
-  const handleInputChange = (event) => {
+  const handleInputChange = event => {
     return dispatch(onChangeFilter(event.target.value));
   };
   return (

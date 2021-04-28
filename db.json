@@ -7,28 +7,16 @@
       "id": 1
     },
     {
-      "name": "Mykhailo G",
+      "name": "G",
       "number": "+38012312312",
       "favourite": true,
       "id": 2
     },
     {
-      "name": "A",
-      "number": "+38012312312",
-      "favourite": false,
+      "name": "Neil Young",
+      "number": "+38023212312",
+      "favourite": true,
       "id": 3
-    },
-    {
-      "name": "AG",
-      "number": "+38012312312",
-      "favourite": false,
-      "id": 4
-    },
-    {
-      "name": "MG",
-      "number": "+38012312312",
-      "favourite": false,
-      "id": 5
     }
   ]
 }

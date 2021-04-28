@@ -1,59 +1,58 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 import {
   contact_item,
   contact_text,
   button_group,
   contact_list,
-} from "./ContactList.module.scss";
+} from './ContactList.module.scss';
 
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 import {
   fetchContactOperation,
   deleteContactOperation,
   toggleContactFavourite,
-} from "../../redux/phonebook/operations";
+} from '../../redux/phonebook/operations';
+import { filteredContactsSelector } from '../../redux/phonebook/reselect';
 
 // Material
-import Button from "@material-ui/core/Button";
-import BackspaceTwoToneIcon from "@material-ui/icons/BackspaceTwoTone";
-import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
-import BookmarkIcon from "@material-ui/icons/Bookmark";
-import { green } from "@material-ui/core/colors";
+import Button from '@material-ui/core/Button';
+import BackspaceTwoToneIcon from '@material-ui/icons/BackspaceTwoTone';
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
+import { green } from '@material-ui/core/colors';
 
 const ContactList = () => {
   const dispatch = useDispatch();
-
-  const contacts = useSelector((state) => state.phonebook.contacts);
-  const filter = useSelector((state) => state.phonebook.filter);
+  const contacts = useSelector(state => filteredContactsSelector(state));
 
   useEffect(() => {
     dispatch(fetchContactOperation());
     // eslint-disable-next-line
   }, []);
 
-  const filteredContacts = () => {
-    const normalizedFilter = filter.toLowerCase();
-    return contacts.filter(
-      ({ name, number }) =>
-        name.toLowerCase().includes(normalizedFilter) ||
-        number.toLowerCase().includes(normalizedFilter)
-    );
-  };
+  // const filteredContacts = () => {
+  //   const normalizedFilter = filter.toLowerCase();
+  //   return contacts.filter(
+  //     ({ name, number }) =>
+  //       name.toLowerCase().includes(normalizedFilter) ||
+  //       number.toLowerCase().includes(normalizedFilter),
+  //   );
+  // };
 
-  const handleDeleteContact = (id) => {
+  const handleDeleteContact = id => {
     return dispatch(deleteContactOperation(id));
   };
 
-  const handleToggleFavourite = (update) => {
+  const handleToggleFavourite = update => {
     return dispatch(toggleContactFavourite(update));
   };
 
   return (
     <>
-      {filteredContacts().length ? (
+      {contacts.length ? (
         <ol className={contact_list}>
-          {filteredContacts().map(({ name, number, id, favourite }) => {
+          {contacts.map(({ name, number, id, favourite }) => {
             return (
               <li key={name} className={contact_item}>
                 <p className={contact_text}>
