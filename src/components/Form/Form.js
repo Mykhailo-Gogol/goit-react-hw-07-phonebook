@@ -17,10 +17,10 @@ import {
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
 import { addContactOperation } from '../../redux/phonebook/operations';
-import { contactsSelector } from '../../redux/phonebook/reselect';
+import { contactsReselect } from '../../redux/phonebook/reselect';
 
 const Form = () => {
-  const contacts = useSelector(state => contactsSelector(state));
+  const contacts = useSelector(contactsReselect);
   const dispatch = useDispatch();
 
   const [contact, setContact] = useState({

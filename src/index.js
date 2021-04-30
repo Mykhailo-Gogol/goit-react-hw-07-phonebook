@@ -10,11 +10,6 @@ import { PersistGate } from 'redux-persist/integration/react';
 // Comp
 import App from './App';
 
-// Utils
-// import disableScroll from 'disable-scroll';
-
-// disableScroll.on();
-
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>

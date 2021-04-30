@@ -8,15 +8,21 @@ export const isLoadingSelector = state => state.phonebook.loading;
 
 // RESELECT
 
-const normalizedFilter = state => filterSelector(state).toLowerCase();
+export const contactsReselect = createSelector(
+  contactsSelector,
+  contacts => contacts,
+);
+
 
 export const filteredContactsSelector = createSelector(
-  [contactsSelector, normalizedFilter],
-  (contacts, filterValue) =>
-    contacts.filter(contact => {
-      return (
-        contact.name.toLowerCase().includes(filterValue) ||
-        contact.number.toLowerCase().includes(filterValue)
-      );
-    }),
+  [contactsSelector, filterSelector],
+  (contacts, filter) => {
+    const normalizeFilter = filter.toLowerCase();
+
+    return contacts.filter(
+      contact =>
+        contact.name.toLowerCase().includes(normalizeFilter) ||
+        contact.number.toLowerCase().includes(normalizeFilter),
+    );
+  },
 );

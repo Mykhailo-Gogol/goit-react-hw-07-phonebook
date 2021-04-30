@@ -7,7 +7,7 @@ import { filterSelector } from '../../redux/phonebook/reselect';
 import Input from '@material-ui/core/Input';
 
 const Filter = () => {
-  const filter = useSelector(state => filterSelector(state));
+  const filter = useSelector(filterSelector);
 
   const dispatch = useDispatch();
 

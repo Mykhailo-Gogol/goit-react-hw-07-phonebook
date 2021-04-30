@@ -1,22 +1,28 @@
 {
   "contacts": [
     {
-      "name": "Mykhailo",
+      "name": "S",
       "number": "+38012312312",
       "favourite": true,
-      "id": 1
+      "id": 4
     },
     {
-      "name": "G",
+      "name": "Y",
       "number": "+38012312312",
-      "favourite": true,
-      "id": 2
+      "favourite": false,
+      "id": 5
     },
     {
-      "name": "Neil Young",
-      "number": "+38023212312",
-      "favourite": true,
-      "id": 3
+      "name": "J",
+      "number": "+38012312312",
+      "favourite": false,
+      "id": 6
+    },
+    {
+      "name": "Qw",
+      "number": "+38012312312",
+      "favourite": false,
+      "id": 7
     }
   ]
 }

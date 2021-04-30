@@ -24,7 +24,7 @@ import { green } from '@material-ui/core/colors';
 
 const ContactList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => filteredContactsSelector(state));
+  const contacts = useSelector(filteredContactsSelector);
 
   useEffect(() => {
     dispatch(fetchContactOperation());
