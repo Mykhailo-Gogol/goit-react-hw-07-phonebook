@@ -1,28 +1,16 @@
 {
   "contacts": [
     {
-      "name": "Asd",
-      "number": "+3801231212",
+      "name": "Foo",
+      "number": "+38012312312",
       "favourite": true,
       "id": 1
     },
     {
-      "name": "Qew",
+      "name": "Bar",
       "number": "+38012312312",
       "favourite": false,
       "id": 2
-    },
-    {
-      "name": "MykhailoMykhailo",
-      "number": "+38012312312",
-      "favourite": false,
-      "id": 3
-    },
-    {
-      "name": "MykhailoMykhailo MykhailoMykhailo",
-      "number": "+38012312312",
-      "favourite": false,
-      "id": 4
     }
   ]
 }

@@ -8,12 +8,8 @@ import {
 } from './ContactList.module.scss';
 
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  fetchContactOperation,
-  deleteContactOperation,
-  toggleContactFavourite,
-} from '../../redux/phonebook/operations';
-import { filteredContactsSelector } from '../../redux/phonebook/selectors';
+import phonebookOperations from '../../redux/phonebook/phonebook-operations';
+import phonebookSelectors from '../../redux/phonebook/phonebook-selectors';
 
 // Material
 import Button from '@material-ui/core/Button';
@@ -24,10 +20,10 @@ import { green } from '@material-ui/core/colors';
 
 const ContactList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(filteredContactsSelector);
+  const contacts = useSelector(phonebookSelectors.filteredContactsSelector);
 
   useEffect(() => {
-    dispatch(fetchContactOperation());
+    dispatch(phonebookOperations.fetchContactOperation());
     // eslint-disable-next-line
   }, []);
 
@@ -41,11 +37,11 @@ const ContactList = () => {
   // };
 
   const handleDeleteContact = id => {
-    return dispatch(deleteContactOperation(id));
+    return dispatch(phonebookOperations.deleteContactOperation(id));
   };
 
   const handleToggleFavourite = update => {
-    return dispatch(toggleContactFavourite(update));
+    return dispatch(phonebookOperations.toggleContactFavourite(update));
   };
 
   return (

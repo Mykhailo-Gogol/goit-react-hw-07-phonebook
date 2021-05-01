@@ -9,14 +9,12 @@ import Loader from './components/Loader';
 
 // REDUX
 import { useSelector } from 'react-redux';
-import {
-  isLoadingSelector,
-  contactsSelector,
-} from './redux/phonebook/selectors';
+import phonebookSelectors from './redux/phonebook/phonebook-selectors';
 
 const App = () => {
-  const isLoading = useSelector(isLoadingSelector);
-  const contactsLength = useSelector(contactsSelector).length;
+  const isLoading = useSelector(phonebookSelectors.isLoadingSelector);
+  const contactsLength = useSelector(phonebookSelectors.contactsSelector)
+    .length;
 
   return (
     <div className="container">

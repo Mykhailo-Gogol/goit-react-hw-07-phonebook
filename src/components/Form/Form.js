@@ -16,11 +16,11 @@ import {
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
-import { addContactOperation } from '../../redux/phonebook/operations';
-import { contactsReselect } from '../../redux/phonebook/selectors';
+import phonebookOperations from '../../redux/phonebook/phonebook-operations';
+import phonebookSelectors from '../../redux/phonebook/phonebook-selectors';
 
 const Form = () => {
-  const contacts = useSelector(contactsReselect);
+  const contacts = useSelector(phonebookSelectors.contactsReselect);
   const dispatch = useDispatch();
 
   const [contact, setContact] = useState({
@@ -65,7 +65,7 @@ const Form = () => {
     } else if (testNumber !== true) {
       numberInputValidation();
     } else {
-      dispatch(addContactOperation({ name, number }));
+      dispatch(phonebookOperations.addContactOperation({ name, number }));
       reset();
     }
   };

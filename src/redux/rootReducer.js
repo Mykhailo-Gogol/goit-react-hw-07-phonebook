@@ -1,5 +1,5 @@
-import { combineReducers } from "redux";
-import phonebook from "./phonebook/reducer";
+import { combineReducers } from 'redux';
+import phonebook from './phonebook/phonebook-reducer';
 
 const rootReducer = combineReducers({
   phonebook,
