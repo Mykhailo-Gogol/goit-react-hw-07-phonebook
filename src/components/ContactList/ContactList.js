@@ -13,7 +13,7 @@ import {
   deleteContactOperation,
   toggleContactFavourite,
 } from '../../redux/phonebook/operations';
-import { filteredContactsSelector } from '../../redux/phonebook/reselect';
+import { filteredContactsSelector } from '../../redux/phonebook/selectors';
 
 // Material
 import Button from '@material-ui/core/Button';

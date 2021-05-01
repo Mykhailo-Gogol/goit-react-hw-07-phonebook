@@ -1,28 +1,28 @@
 {
   "contacts": [
     {
-      "name": "S",
-      "number": "+38012312312",
+      "name": "Asd",
+      "number": "+3801231212",
       "favourite": true,
+      "id": 1
+    },
+    {
+      "name": "Qew",
+      "number": "+38012312312",
+      "favourite": false,
+      "id": 2
+    },
+    {
+      "name": "MykhailoMykhailo",
+      "number": "+38012312312",
+      "favourite": false,
+      "id": 3
+    },
+    {
+      "name": "MykhailoMykhailo MykhailoMykhailo",
+      "number": "+38012312312",
+      "favourite": false,
       "id": 4
-    },
-    {
-      "name": "Y",
-      "number": "+38012312312",
-      "favourite": false,
-      "id": 5
-    },
-    {
-      "name": "J",
-      "number": "+38012312312",
-      "favourite": false,
-      "id": 6
-    },
-    {
-      "name": "Qw",
-      "number": "+38012312312",
-      "favourite": false,
-      "id": 7
     }
   ]
 }

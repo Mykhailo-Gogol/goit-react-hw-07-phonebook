@@ -1,7 +1,7 @@
 import { filter_input } from './Filter.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { onChangeFilter } from '../../redux/phonebook/actions';
-import { filterSelector } from '../../redux/phonebook/reselect';
+import { filterSelector } from '../../redux/phonebook/selectors';
 
 // Material
 import Input from '@material-ui/core/Input';

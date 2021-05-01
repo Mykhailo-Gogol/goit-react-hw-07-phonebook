@@ -17,7 +17,7 @@ import {
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
 import { addContactOperation } from '../../redux/phonebook/operations';
-import { contactsReselect } from '../../redux/phonebook/reselect';
+import { contactsReselect } from '../../redux/phonebook/selectors';
 
 const Form = () => {
   const contacts = useSelector(contactsReselect);

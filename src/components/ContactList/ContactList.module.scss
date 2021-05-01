@@ -15,19 +15,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 500px;
+  max-width: 500px;
   padding: 0 5px;
-  border-bottom: 1px solid black;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.contact_item:hover {
+  background-color: lightgreen;
 }
 
 .contact_text {
-  width: 350px;
+  width: 250px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0;
   height: 50px;
   color: #212121;
+  padding-left: 30px;
 }
 
 .button_group {
@@ -38,11 +45,13 @@
   .contact_item {
     width: 300px;
     height: auto;
+    padding: 0;
   }
 
   .contact_text {
     width: 200px;
-    flex-direction: column;
+    // flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-between;
   }
 
